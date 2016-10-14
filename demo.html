@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>树</title>
+    <style media="screen">
+      body{
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+    <script type="text/javascript">
+
+    var c=document.getElementById("canvas");
+    var ctx=c.getContext("2d");
+    var image = new Image();
+        image.src = "images/back.jpeg";
+    // var img=document.getElementById("tulip");
+    image.onload = function(){
+      c.width = window.innerWidth;
+      c.height = window.innerHeight;
+
+      var height = image.height * (c.width / image.width);
+      ctx.drawImage(image, 0, 0, c.width, height);
+    }
+    </script>
+  </body>
+</html>
