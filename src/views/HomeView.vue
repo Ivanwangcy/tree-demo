@@ -8,7 +8,7 @@
 <script>
 import { mapGetters, mapActions } from 'vuex'
 import treeView from '../components/TreeView'
-import ListView from '../components/ListView'
+import listView from '../components/ListView'
 
 export default {
   computed: mapGetters(['msg']),

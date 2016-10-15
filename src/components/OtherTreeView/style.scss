@@ -1,0 +1,31 @@
+.other-tree-view{
+  img{
+    width: 100vw;
+    height: 100vh;
+  }
+
+
+  i{
+    position: absolute;
+  }
+
+  .tree{
+    left: 50%;
+    bottom: 50px;
+    font-size: 200px;
+    color: #209e15;
+    // width: 200px;
+    transform: translateX(-50%);
+  }
+
+  .bubble{
+    color: rgba(49, 240, 246, 1);
+    font-size: 50px;
+  }
+
+  .fa-apple{
+    color: red;
+    font-size: 50px;
+  }
+
+}
