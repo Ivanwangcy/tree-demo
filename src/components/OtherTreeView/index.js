@@ -1,16 +1,18 @@
 import Vue from 'vue'
 import './style.scss'
 
-var bubbles = [
-  1,2,3,4,5,6
-];
-
-var fruits = [
-  1,2,4,5,4
-]
-
 export default {
   name: "other-tree-view",
+  data: () => {
+    return {
+      bubbles: [
+      1,2,3,4,5,6
+      ],
+      fruits: [
+        1,2,4,5,4
+      ]
+    }
+  },
   methods: {
     handleBubbles: (e) => {
       console.log(e);
@@ -23,7 +25,7 @@ export default {
     }
   },
   render(h) {
-    var bubblesList = bubbles.map((value) => {
+    var bubblesList = this.bubbles.map((value) => {
       var bottom = ~~(Math.random() * (window.innerHeight - 200)) + 100 + 'px'
       var left = ~~(Math.random() * (window.innerWidth - 100)) + 50 + 'px'
       return (
@@ -31,7 +33,7 @@ export default {
       )
     })
 
-    var fruitList = fruits.map((value) => {
+    var fruitList = this.fruits.map((value) => {
       var bottom = ~~(Math.random() * 100 ) + 100 + 'px'
       var left = ~~(Math.random() * 100) + 100 + 'px'
       return (
