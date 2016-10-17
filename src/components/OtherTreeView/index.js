@@ -14,6 +14,8 @@ export default {
   methods: {
     handleBubbles: (e) => {
       console.log(e);
+      console.log(Promise);
+      // var pro = new Promise();
       e.target.remove();
     },
     handleFruits: (e) => {
