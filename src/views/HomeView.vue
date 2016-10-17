@@ -1,7 +1,7 @@
 <template lang="html">
   <div>
     <!-- <tree-view></tree-view> -->
-    <other-tree-view></other-tree-view>
+    <other-tree-view :treeHeight="400"></other-tree-view>
     <list-view></list-view>
   </div>
 </template>
