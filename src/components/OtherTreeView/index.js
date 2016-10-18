@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import * as api from '../../store/api'
 import './style.scss'
 
 export default {
@@ -34,13 +35,17 @@ export default {
     // this.$http.get('/growUp/watering?userPin=USER_1&waterId=1')  // 点击水珠，浇水
     // this.$http.get('/growUp/creditsConvertGoods?userPin=USER_1&fruitId=2') // 兑换礼物
     // this.$http.get('/growUp/stealWater?srcUserPin=USER_1&stolenUserPin=USER_2&waterId=2') // 偷水
-    //     .then((result) => {
-    //       // this.quote = result.data
-    //       console.log('result', result);
-    //     }, (err) => {
-    //       // context.error = err
-    //       console.log('err', err);
-    //     })
+        api.getTree(this.$http, {}).then((result) => {
+          result.data = result.data || {}
+          this.currentGrow = result.data.currentWater;
+          this.totalGrow = result.data.totalWater;
+          console.log('result', result);
+        }, (err) => {
+          // context.error = err
+          this.currentGrow = 40;
+          this.totalGrow = 100;
+          console.log('err', err);
+        })
   },
   methods: {
     handleBubbles: (e, context, data) => { // context 等于 当前组件对象，this 不是指向当前组件
