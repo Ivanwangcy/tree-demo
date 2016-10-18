@@ -15,7 +15,7 @@ export default {
   },
   render(h){
     return (
-      <other-tree-view></other-tree-view>
+      <other-tree-view own={false}></other-tree-view>
     )
   }
 }
