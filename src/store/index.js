@@ -9,7 +9,11 @@ Vue.use(Vuex);
 // 状态树
 const state = {
   msg: "Welcome to your Vue.js app!",
-  count: 0
+  count: 0,
+  level: 0,
+  currentGrow: 0,
+  totalGrow: 100
+
 }
 const store = new Vuex.Store({
   state,

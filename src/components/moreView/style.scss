@@ -2,9 +2,19 @@
   ul{
     overflow: scroll;
     white-space: nowrap;
+    background:rgba(57, 207, 50, 0.68)
   }
 
   li{
     display: inline-block;
+    margin-left: 15px;
+    text-align: center;
+  }
+
+  h3{
+    padding: 5px;
+    border-bottom: 1px solid #c9cfc8;
+    border-top: 1px solid #c9cfc8;
+    margin: 5px;
   }
 }

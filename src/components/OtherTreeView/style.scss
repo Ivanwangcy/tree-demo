@@ -1,27 +1,50 @@
 .other-tree-view{
   position: relative;
 
+  button{
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    border: 1px solid gray;
+    background: #f3dd08;
+    // background: #f00;
+    padding: 10px;
+  }
   img{
     width: 100vw;
     height: 100vh;
   }
 
 
-  i{
+  i, .apple, .water{
     position: absolute;
   }
 
-  .tree{
-    left: 50%;
-    bottom: 50px;
-    font-size: 200px;
-    color: #209e15;
-    // width: 200px;
-    transform: translateX(-50%);
+  .apple{
+    width: 40px;
+    height: 45px;
+    border-radius: 50%;
+    opacity: .95;
+  }
+
+  // .tree{
+  //   left: 50%;
+  //   bottom: 50px;
+  //   font-size: 200px;
+  //   color: #209e15;
+  //   // width: 200px;
+  //   transform: translateX(-50%);
+  // }
+
+  .water{
+    width: 35px;
+    height: 40px;
+    opacity: .8;
+    border-radius: 50%;
   }
 
   .bubble{
-    color: rgba(49, 240, 246, 1);
+    color: rgba(49, 240, 246, .5);
     font-size: 50px;
   }
 
@@ -33,7 +56,7 @@
     color: red;
     position: absolute;
     top: 20px;
-    left: 10px;
+    left: 5px;
   }
   .fa-apple{
     color: red;
@@ -62,5 +85,6 @@
       display: inline-block;
       left: 0;
     }
+
   }
 }
