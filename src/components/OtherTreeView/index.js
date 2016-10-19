@@ -51,16 +51,20 @@ export default {
     handleBubbles: (e, context, data) => { // context 等于 当前组件对象，this 不是指向当前组件
       console.log(e, data, context.currentGrow);
 
-      context.currentGrow += data;
+      if(context.own){
+        context.currentGrow += data;
+      }
       if(context.currentGrow == context.totalGrow){
         context.fruits = [1,2,3,4,5];
       }
-      e.target.remove();
+      e.currentTarget.remove();
 
     },
     handleFruits: (e, context) => {
       context.currentGrow = 0;
-      e.target.parentElement.remove()
+      // e.target.parentElement.remove()
+      e.currentTarget.remove()
+      alert("获得了神秘礼物！！")
     }
   },
   render(h) {
@@ -68,11 +72,28 @@ export default {
     var bubblesList = this.bubbles.map((value) => {
       var bottom = ~~(Math.random() * (this.treeHeight - 200)) + 150 + 'px'
       var left = ~~(Math.random() * (window.innerWidth - 100)) + 50 + 'px'
+
+      // class="bubble fa fa-circle-thin"
+        // <i class="bubble fa fa-circle"
+        //   style={{bottom: bottom, left: left}}
+        //   on-click={(event) => this.handleBubbles(event, this, value)}
+        // ></i>
+        // <img class="bubble" src="/dist/assets/water.jpg"
+        //   style={{bottom: bottom, left: left}}
+        //   on-click={(event) => this.handleBubbles(event, this, value)}
+        //   />
       return (
-        <i class="bubble fa fa-circle-thin"
+
+        <div class="bubble-container"
           style={{bottom: bottom, left: left}}
-          on-click={(event) => this.handleBubbles(event, this, value)}
-        ></i>
+          on-click={(event) => this.handleBubbles(event, this, value)}>
+          <i class="bubble fa fa-circle"
+          ></i>
+          <span class="bubble-val">10g</span>
+        </div>
+
+
+
       )
     })
 
@@ -102,15 +123,15 @@ export default {
           : ''
         }
 
-        { this.own
-          ? <label class="grow-info">
+        {/* { this.own ?*/}
+           <label class="grow-info">
               <span
               style={{width: this.currentGrow + 'px'}}
               class="current-grow"></span>
-              <span>{ this.currentGrow + '/' + this.totalGrow }</span>
+              <span>{ this.currentGrow + 'g/' + this.totalGrow +'g'}</span>
             </label>
-          : ''
-        }
+          {/* : '' }*/}
+
       </div>
     )
   }

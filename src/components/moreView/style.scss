@@ -1,0 +1,10 @@
+.more-view{
+  ul{
+    overflow: scroll;
+    white-space: nowrap;
+  }
+
+  li{
+    display: inline-block;
+  }
+}
