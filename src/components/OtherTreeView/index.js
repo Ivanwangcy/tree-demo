@@ -18,9 +18,7 @@ export default {
     return {
       currentGrow: 40,
       totalGrow: 100,
-      bubbles: [
-      10,10,10,10,10,10
-      ],
+      bubbles: [],
       fruits: []
     }
   },
@@ -37,13 +35,25 @@ export default {
     // this.$http.get('/growUp/stealWater?srcUserPin=USER_1&stolenUserPin=USER_2&waterId=2') // 偷水
         api.getTree(this.$http, {}).then((result) => {
           result.data = result.data || {}
+          // this.bubbles = result.data;
           this.currentGrow = result.data.currentWater;
           this.totalGrow = result.data.totalWater;
-          console.log('result', result);
+          // this.totalGrow = result.data.totalWater;
+          console.log('getTreeresult', result);
         }, (err) => {
           // context.error = err
           this.currentGrow = 40;
           this.totalGrow = 100;
+          console.log('err', err);
+        })
+
+        api.getUnusedWater(this.$http, {}).then((result) => {
+          result.data = result.data || {}
+          this.bubbles = result.data;
+          console.log('getUnusedWaterresult', result);
+        }, (err) => {
+          // context.error = err
+          this.bubbles = [{value: 10},{value: 10},{value: 10},{value: 10},{value: 10},{value: 10}]
           console.log('err', err);
         })
   },
@@ -57,6 +67,8 @@ export default {
       if(context.currentGrow == context.totalGrow){
         context.fruits = [1,2,3,4,5];
       }
+
+
       e.currentTarget.remove();
 
     },
@@ -69,6 +81,7 @@ export default {
   },
   render(h) {
     console.log(this.treeHeight, this.own);
+    console.log(this.bubbles);
     var bubblesList = this.bubbles.map((value) => {
       var bottom = ~~(Math.random() * (this.treeHeight - 200)) + 150 + 'px'
       var left = ~~(Math.random() * (window.innerWidth - 100)) + 50 + 'px'
@@ -86,12 +99,11 @@ export default {
 
         <div class="bubble-container"
           style={{bottom: bottom, left: left}}
-          on-click={(event) => this.handleBubbles(event, this, value)}>
+          on-click={(event) => this.handleBubbles(event, this, value.value)}>
           <i class="bubble fa fa-circle"
           ></i>
-          <span class="bubble-val">10g</span>
+          <span class="bubble-val">{value.value}g</span>
         </div>
-
 
 
       )
