@@ -4,8 +4,8 @@ var webpack = require('webpack')
 module.exports = {
   entry: './src/main.js',
   output: {
-    path: path.resolve(__dirname, './dist'),
-    publicPath: '/dist/',
+    path: path.resolve(__dirname, './dist'), // 输出的绝对路径
+    publicPath: '//static-o2o.360buyimg.com/dist/', // CDN 配置
     filename: 'build.js'
   },
   resolveLoader: {
