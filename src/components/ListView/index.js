@@ -28,7 +28,7 @@ export default {
     var list = this.arr.map((value, index) => {
       return (
         <li class='list-item'>
-          <router-link to={"/user/" + value.id}>
+          <router-link to={{name: "user", params: {storeid: value.id, orgcode: "daojia"}, query: { channel: 'daojia', hide: true} }}>
             <img src={value.img}/>
             <span class="username">{value.name}</span>
             <span class="userinfo">{value.info}</span>

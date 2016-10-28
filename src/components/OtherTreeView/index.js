@@ -29,6 +29,8 @@ export default {
     }
   },
   created() {
+    console.log(this.$route.params);
+    console.log(this.$route.query);
     // debugger
     var path = this.$router.history.current.fullPath.split("/");
     // path[path.length - 1]
